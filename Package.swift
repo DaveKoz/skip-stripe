@@ -10,9 +10,9 @@ let package = Package(
         .library(name: "SkipStripe", type: .dynamic, targets: ["SkipStripe"]),
     ],
     dependencies: [
-        .package(url: "https://source.skip.tools/skip.git", from: "1.6.27"),
+        .package(url: "https://source.skip.tools/skip.git", from: "1.7.2"),
         .package(url: "https://source.skip.tools/skip-ui.git", from: "1.0.0"),
-        .package(url: "https://github.com/stripe/stripe-ios.git", from: "24.24.1")
+        .package(url: "https://github.com/stripe/stripe-ios.git", from: "25.7.0")
     ],
     targets: [
         .target(name: "SkipStripe", dependencies: [
