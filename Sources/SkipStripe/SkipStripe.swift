@@ -504,15 +504,12 @@ public struct StripePaymentButton<Label>: View where Label : View {
 
         var builder = PaymentSheet.Builder({ result in
             // translate PaymentSheetResult into StripePaymentResult
-            switch result {
-            case PaymentSheetResult.Completed:
+            if result is PaymentSheetResult.Completed {
                 self.completion(StripePaymentResult.completed)
-            case PaymentSheetResult.Canceled:
+            } else if result is PaymentSheetResult.Canceled {
                 self.completion(StripePaymentResult.canceled)
-            default: // i.e.: case PaymentSheetResult.Failed:
-                if result is PaymentSheetResult.Failed {
-                    self.completion(StripePaymentResult.failed(error: ErrorException(result.error)))
-                }
+            } else if result is PaymentSheetResult.Failed {
+                self.completion(StripePaymentResult.failed(error: ErrorException(result.error)))
             }
         })
         let paymentSheet = builder.build()
@@ -544,3 +541,4 @@ public struct SimpleStripePaymentButton: View {
     }
 }
 #endif
+
