@@ -1,5 +1,4 @@
 // swift-tools-version: 5.9
-// This is a Skip (https://skip.dev) package.
 import PackageDescription
 
 let package = Package(
@@ -7,7 +6,7 @@ let package = Package(
     defaultLocalization: "en",
     platforms: [.iOS(.v17), .macOS(.v14)],
     products: [
-        .library(name: "SkipStripe", type: .dynamic, targets: ["SkipStripe"]),
+        .library(name: "SkipStripe", targets: ["SkipStripe"]),
     ],
     dependencies: [
         .package(url: "https://source.skip.tools/skip.git", from: "1.6.27"),
